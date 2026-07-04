@@ -1,0 +1,27 @@
+{
+  "name": "لوحة تحكم النقل — تخصيص العمال والحافلات",
+  "short_name": "لوحة النقل",
+  "description": "تطبيق لإدارة العمال والحافلات وإرسال التقرير اليومي",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1c2530",
+  "theme_color": "#1c2530",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

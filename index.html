@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>لوحة تحكم النقل — تخصيص العمال والحافلات</title>
+<title>BRIDAA</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1c2530">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
@@ -509,7 +509,7 @@
 <body>
 
 <div class="topbar">
-  <h1 id="titleMain" class="editable" contenteditable="true" spellcheck="false">🚍 لوحة تحكم النقل</h1>
+  <h1 id="titleMain" class="editable" contenteditable="true" spellcheck="false">🚍 PARC AMEUR</h1>
   <p id="titleSub" class="editable" contenteditable="true" spellcheck="false">GESTION — OUVRIERS &amp; MINI BUS</p>
   <div class="edit-hint">✎ اضغط على العنوان أعلاه لتعديله</div>
 </div>
@@ -535,11 +535,11 @@
     <div class="stats-grid">
       <div class="stat-tile green">
         <div class="v" id="statPresent">0</div>
-        <div class="l">عمال حاضرون اليوم</div>
+        <div class="l">السائقون الحاضرون</div>
       </div>
       <div class="stat-tile">
         <div class="v" id="statWorkers">0</div>
-        <div class="l">إجمالي العمال</div>
+        <div class="l">عدد السائقين</div>
       </div>
       <div class="stat-tile blue">
         <div class="v" id="statBusesService">0</div>
@@ -547,7 +547,7 @@
       </div>
       <div class="stat-tile red">
         <div class="v" id="statBusesMaint">0</div>
-        <div class="l">حافلات حادث/عطلانة</div>
+        <div class="l">الحافلات المعطلة \ الحادث</div>
       </div>
     </div>
 
@@ -616,7 +616,7 @@
             <option value="سائق">سائق</option>
             <option value="عامل صيانة">عامل صيانة</option>
             <option value="مشرف">مشرف</option>
-            <option value="أخرى">أخرى</option>
+            <option value="مكلف بالوقود">مكلف بالوقود</option>
           </select>
         </div>
       </div>
@@ -636,7 +636,7 @@
             <option value="سائق">سائق</option>
             <option value="عامل صيانة">عامل صيانة</option>
             <option value="مشرف">مشرف</option>
-            <option value="أخرى">أخرى</option>
+            <option value="مكلف بالوقود">مكلف بالوقود</option>
           </select>
         </div>
       </div>
@@ -649,7 +649,7 @@
     </div>
 
     <div class="card">
-      <h2><span class="dot"></span> قائمة العمال</h2>
+      <h2><span class="dot"></span> قائمة السائقين</h2>
       <div id="workersList"></div>
     </div>
   </div>
@@ -671,8 +671,8 @@
             <option value="remplace">بديلة / Remplacée</option>
             <option value="renforce">معززة / Renforcée</option>
             <option value="accident">حادث / Accident</option>
-            <option value="panne">عطلانة / En panne</option>
-            <option value="park">باقية بالموقف / Reste au parc</option>
+            <option value="panne">معطلة / En panne</option>
+            <option value="park">متوقفة بالمراب / Reste au parc</option>
           </select>
         </div>
       </div>
@@ -698,8 +698,8 @@
             <option value="remplace">بديلة / Remplacée</option>
             <option value="renforce">معززة / Renforcée</option>
             <option value="accident">حادث / Accident</option>
-            <option value="panne">عطلانة / En panne</option>
-            <option value="park">باقية بالموقف / Reste au parc</option>
+            <option value="panne">معطلة / En panne</option>
+            <option value="park">متوقفة بالمراب / Reste au parc</option>
           </select>
         </div>
       </div>
@@ -727,13 +727,13 @@
           <select id="a_bus"></select>
         </div>
         <div class="field">
-          <label>العامل</label>
+          <label>السائق</label>
           <select id="a_worker"></select>
         </div>
       </div>
       <div class="row2">
         <div class="field">
-          <label>الوردية</label>
+          <label>الحصة</label>
           <select id="a_shift">
             <option value="">—</option>
             <option value="صباحية">صباحية</option>
@@ -757,7 +757,7 @@
   <!-- ATTENDANCE -->
   <div class="view" id="view-attendance">
     <div class="card">
-      <h2><span class="dot"></span> حضور العمال — اليوم المحدد</h2>
+      <h2><span class="dot"></span> حضور السائقين - اليوم المحدد</h2>
       <div id="attendanceList"></div>
     </div>
   </div>
@@ -920,7 +920,7 @@ function renderWorkers(){
 /* ---------- BUSES ---------- */
 const statusLabel = {
   affected:'مخصصة', reserve:'احتياط', remplace:'بديلة',
-  renforce:'معززة', accident:'حادث', panne:'عطلانة', park:'بالموقف'
+  renforce:'معززة', accident:'حادث', panne:'معطلة', park:'بالموقف'
 };
 const statusLabelFr = {
   affected:'Affectée', reserve:'Réserve', remplace:'Remplacée',
@@ -993,7 +993,7 @@ function renderBuses(){
         <option value="remplace">بديلة</option>
         <option value="renforce">معززة</option>
         <option value="accident">حادث</option>
-        <option value="panne">عطلانة</option>
+        <option value="panne">معطلة</option>
         <option value="park">بالموقف</option>
       </select>
       <button class="icon-btn del" data-del>×</button>
@@ -1071,7 +1071,7 @@ function renderAssignments(){
         <div class="sub editable-note" contenteditable="true" spellcheck="false">${escapeHtml(a.note || 'أضف ملاحظة...')}</div>
       </div>
       <select class="shiftSel" style="width:auto;padding:6px 8px;font-size:12px;">
-        <option value="">بدون وردية</option>
+        <option value="">حصةوردية</option>
         <option value="صباحية">صباحية</option>
         <option value="مسائية">مسائية</option>
       </select>
@@ -1212,31 +1212,31 @@ function buildReportText(){
   const namesList = arr => arr.map(w => `   • ${w.name}${w.role ? ' (' + w.role + ')' : ''}`);
 
   const lines = [
-    `📋 *تقرير التخصيص اليومي*`,
+    `📋 *تقرير اليومي*`,
     `_${parkName}_`,
     ``,
     `📅 *التاريخ* : ${fmtDate(dateKey)}`,
     `🕐 *وقت الإرسال* : ${nowTime()}`,
     ``,
     `*👷 السائقون / Conducteurs*`,
-    `- ✅ حاضرون / Conducteurs présents : *${present.length}*`,
-    `- ❌ غائبون / Conducteurs absent : *${absent.length}*`,
+    `- ✅ حاضرون     / Conducteurs présents : *${present.length}*`,
+    `- ❌ غائبون       / Conducteurs absent : *${absent.length}*`,
     ...namesList(absent),
     `- 🟦 مرافقون / Conducteurs accompagnés : *${accompanied.length}*`,
     ...namesList(accompanied),
-    `- 🟨 احتياط / Conducteurs réserve : *${driverReserve.length}*`,
+    `- 🟨 احتياط      / Conducteurs réserve : *${driverReserve.length}*`,
     ...namesList(driverReserve),
-    `- 🛠️ عمال الصيانة / Agent maintenance : *${maintAgents.length}*`,
+    `- 🛠️ عامل صيانة / Agent maintenance : *${maintAgents.length}*`,
     ``,
     `*🚌 الحافلات / Bus*`,
-    `- 🔢 إجمالي الحافلات / Total du bus : *${totalBus}*`,
+    `- 🔢 عددالحافلات / Total du bus : *${totalBus}*`,
     `- 🟢 مخصصة / Bus affectées : *${busAffected.length}*`,
-    `- 🔵 احتياط / Bus Réserve : *${busReserve.length}*`,
-    `- 🟣 بديلة / Bus remplacé : *${busRemplace.length}*`,
+    `- 🔵 احتياط  / Bus Réserve : *${busReserve.length}*`,
+    `- 🟣 بديلة  / Bus remplacé : *${busRemplace.length}*`,
     `- 🟦 معززة / Bus renforcés : *${busRenforce.length}*`,
-    `- 🔴 حادث / Bus accident : *${busAccident.length}*`,
-    `- 🟠 عطلانة / Bus en panne : *${busPanne.length}*`,
-    `- ⚪ باقية بالموقف / Bus reste au parc : *${busPark.length}*`,
+    `- 🔴 حادث   / Bus accident : *${busAccident.length}*`,
+    `- 🟠 عطلانة  / Bus en panne : *${busPanne.length}*`,
+    `- ⚪ باقية بالمراب / Bus reste au parc : *${busPark.length}*`,
     ``,
     `*📋 التخصيصات (${todays.length})*`
   ];
